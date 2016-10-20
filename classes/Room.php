@@ -23,9 +23,18 @@ class Room
     return $this->ace_url;
   }
 
+  public function getSchedule(){
+    return $this->parseScheduleTable($this->extractRawData());
+  }
+
   public function extractRawData()
   {
     return get_web_page($this->ace_url)['content'];
+  }
+
+  private function parseScheduleTable($webpage){
+    $schedule_table = explode("<table", $webpage);
+    return "<table " . $schedule_table[6];
   }
 
 
