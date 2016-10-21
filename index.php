@@ -2,9 +2,18 @@
 
 error_reporting(E_ALL);
 
-include 'classes/Room.php';
+require_once 'classes/Room.php';
+require_once 'classes/etc/limonade.php';
 
-$room = new Room('BA', '2159', '20161028');
-$raw_data = $room->getSchedule();
+dispatch_get('/:building/:room/:date', 'getSchedule');
+function getSchedule(){
+  $building = strtoupper(params('building'));
+  $room = params('room');
+  $date = params('date');
+  $room = new Room($building, $room, $date);
 
-echo $raw_data;
+  $schedule = $room->getSchedule();
+
+  echo $schedule;
+}
+run();
