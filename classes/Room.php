@@ -28,8 +28,13 @@ class Room
     public function getSchedule()
     {
         $table = $this->parseScheduleTable($this->extractRawData());
+        $room_output = array();
+        $room_output['building_code'] = $this->building_code;
+        $room_output['room_number'] = $this->room_number;
+        $room_output['date'] = $this->date->format('Y-m-d');
+        $room_output['schedule'] = $this->makeSchedule($table);
 
-        return $this->makeSchedule($table);
+        return json_encode($room_output, JSON_PRETTY_PRINT);
     }
 
     public function extractRawData()
@@ -56,6 +61,6 @@ class Room
             $time->add(new DateInterval('PT1H'));
         }
 
-        return json_encode($schedule, JSON_PRETTY_PRINT);
+        return $schedule;
     }
 }
