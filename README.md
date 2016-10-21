@@ -2,6 +2,13 @@
 
 This API is intended to provide anyone a clean JSON output for UofT St.George Campus Room Schedule.
 
+Installation
+============
+
+Usage
+=====
+
+
 The expected output for any GET request should look like this:
 
 ```
