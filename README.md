@@ -1,4 +1,4 @@
-# UofTACEScheduleAPI
+# University of Toronto Academic Campus and Events Schedule API
 
 This API is intended to provide anyone a clean JSON output for UofT St.George Campus Room Schedule.
 
