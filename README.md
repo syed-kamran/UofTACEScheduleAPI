@@ -10,9 +10,10 @@ The expected output for any GET request should look like this:
 	"room_number": "304"
 	"date": "20161021"
 	"schedule":	{
-		"0600": "An Event",
-		"0700": "Another Event",
-		"0800": ""
+		"07:00": "An Event",
+		"08:00": "Another Event",
+		"09:00": "",
+		"10:00": "Just another event"
 	}
 }
 ```
